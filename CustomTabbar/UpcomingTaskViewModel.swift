@@ -43,6 +43,11 @@ class UpcomingTaskViewModel {
         return array[row]
     }
     
+    func completedTask(section: Int, row: Int, completed: Bool) {
+        let task = getTaskFromSectionIndex(section: section, row: row)
+        StorageManager.shared.modify(task: task, completed: completed)
+    }
+    
     init() {
         let date = Date()
         let predicate = NSPredicate(format: "date >= %@", date.next as NSDate)

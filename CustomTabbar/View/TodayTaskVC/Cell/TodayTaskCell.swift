@@ -18,6 +18,8 @@ class TodayTaskCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateTimeTabel: UILabel!
     
+    var delegate: TodayTaskCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -35,5 +37,9 @@ class TodayTaskCell: UITableViewCell {
         titleLabel.text = title
         checkBox.isSelected = completed
         dateTimeTabel.text = date
+    }
+    
+    @IBAction func completedTask(_ sender: UICheckbox) {
+        self.delegate?.didCompletedTask(cell: self)
     }
 }

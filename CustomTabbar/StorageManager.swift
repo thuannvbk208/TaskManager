@@ -21,7 +21,6 @@ class StorageManager {
             try realm.write {
                 realm.add(task)
             }
-
             //shedule notification
             let timeInterval = task.date.timeIntervalSinceNow
             if timeInterval > 0 {
@@ -32,6 +31,16 @@ class StorageManager {
                         print("Add notification fail")
                     }
                 }
+            }
+        } catch let error as NSError {
+            print(error)
+        }
+    }
+    
+    internal func modify(task: Task, completed: Bool) {
+        do {
+            try realm.write {
+                task.isCompleted = completed
             }
         } catch let error as NSError {
             print(error)

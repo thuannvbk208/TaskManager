@@ -64,6 +64,16 @@ class ReminderNotification {
             }
         }
     }
+    
+    public func getDeliveredNotifications() {
+        UNUserNotificationCenter.current().getDeliveredNotifications { (notifications) in
+            print("getDeliveredNotifications: \(notifications.count)")
+            for notifi in notifications {
+                print(notifi.request.content.body)
+            }
+        }
+    }
+    
     public func removePendingNotifications(identifier: String) {
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])

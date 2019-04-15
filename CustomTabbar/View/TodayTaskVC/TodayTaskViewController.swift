@@ -8,7 +8,8 @@
 
 import UIKit
 
-class TodayTaskViewController: BaseViewController {
+class TodayTaskViewController: BaseViewController, TodayTaskCellDelegate {
+   
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -35,6 +36,17 @@ class TodayTaskViewController: BaseViewController {
             }
         }
     }
+    
+    // - MARK: TodayTaskCellDelegate
+    func didCompletedTask(cell: TodayTaskCell?) {
+        guard let validCell = cell else { return }
+        let indexPath = tableView.indexPath(for: validCell)
+        if let indexPath = indexPath {
+            let completed = validCell.checkBox.isSelected
+            viewModel.completedTask(index: indexPath.section, completed: completed)
+        }
+    }
+    
 }
 
 extension TodayTaskViewController: UITableViewDataSource {
@@ -48,8 +60,7 @@ extension TodayTaskViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodayTaskCell", for: indexPath) as! TodayTaskCell
-        cell.checkBox.tag = indexPath.row
-        cell.checkBox.addTarget(self, action: #selector(completedTask(_:)), for: UIControl.Event.touchUpInside)
+        cell.delegate = self
         let task = viewModel.getTaskByIndex(index: indexPath.section)
         cell.configureView(title: task.title, date: task.date.toString(),completed: task.isCompleted)
         return cell
@@ -71,13 +82,9 @@ extension TodayTaskViewController: UITableViewDataSource {
         view.backgroundColor = .clear
         return view
     }
-    
-    @objc func completedTask(_ sender: UICheckbox) {
-        let tag = sender.tag
-        print(tag)
-    }
 }
 
 extension TodayTaskViewController: UITableViewDelegate {
     
 }
+

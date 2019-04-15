@@ -27,6 +27,11 @@ class TodayTaskViewModel {
         return tasks.count
     }
     
+    func completedTask(index: Int, completed: Bool) {
+        let task = getTaskByIndex(index: index)
+        StorageManager.shared.modify(task: task, completed: completed)
+    }
+    
     init() {
         let date = Date()
         let predicate = NSPredicate(format: "date >= %@ && date < %@", date.current as NSDate, date.next as NSDate)

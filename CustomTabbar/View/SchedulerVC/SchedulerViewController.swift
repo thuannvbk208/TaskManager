@@ -8,8 +8,7 @@
 
 import UIKit
 
-class SchedulerViewController: BaseViewController {
-
+class SchedulerViewController: BaseViewController, SchudulerTaskCellDelegate {
     private var viewModel = UpcomingTaskViewModel()
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -42,6 +41,16 @@ class SchedulerViewController: BaseViewController {
             }
         }
     }
+    
+    func didCompletedTask(cell: UpcomingTaskCell?) {
+        guard let validCell = cell else { return }
+        let indexPath = tableView.indexPath(for: validCell)
+        if let indexPath = indexPath {
+            let completed = validCell.checkBox.isSelected
+            viewModel.completedTask(section: indexPath.section, row: indexPath.row, completed: completed)
+        }
+    }
+    
 }
 
 extension SchedulerViewController: UITableViewDataSource {
@@ -55,6 +64,7 @@ extension SchedulerViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UpcomingTaskCell", for: indexPath) as! UpcomingTaskCell
+        cell.delegate = self
         let task = viewModel.getTaskFromSectionIndex(section: indexPath.section, row: indexPath.row)
         cell.configureView(title: task.title, date: task.date.timeToString(),completed: task.isCompleted)
         return cell

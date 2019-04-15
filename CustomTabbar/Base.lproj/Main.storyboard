@@ -524,6 +524,9 @@
                                                                 <userDefinedRuntimeAttribute type="image" keyPath="checkImage" value="checkedbox"/>
                                                                 <userDefinedRuntimeAttribute type="image" keyPath="noneCheckImage" value="checkbox"/>
                                                             </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="completedTask:" destination="o9K-HH-ymn" eventType="touchUpInside" id="SFU-GW-CrH"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
@@ -648,6 +651,9 @@
                                                                 <userDefinedRuntimeAttribute type="image" keyPath="checkImage" value="checkedbox"/>
                                                                 <userDefinedRuntimeAttribute type="image" keyPath="noneCheckImage" value="checkbox"/>
                                                             </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="completedTask:" destination="aOB-dZ-qlA" eventType="touchUpInside" id="waV-HS-jT9"/>
+                                                            </connections>
                                                         </button>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gsS-Zb-6ML">
                                                             <rect key="frame" x="69" y="21.5" width="245" height="38.5"/>
@@ -676,7 +682,7 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
-                                                    <outlet property="checkBox" destination="70s-hG-yxD" id="cf4-GL-V63"/>
+                                                    <outlet property="checkBox" destination="70s-hG-yxD" id="mWh-Kc-Cxn"/>
                                                     <outlet property="dateTimeTabel" destination="OgC-Yc-W1v" id="UX5-Xl-gdn"/>
                                                     <outlet property="titleLabel" destination="RYo-F2-tdd" id="3r9-1t-JK6"/>
                                                 </connections>
@@ -1110,7 +1116,7 @@
                                         <rect key="frame" x="35" y="30" width="344" height="633"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BasicCell" rowHeight="81" id="sbL-xC-sxG" customClass="TodayTaskCell" customModule="CustomTabbar" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TodayTaskCell" rowHeight="81" id="sbL-xC-sxG" customClass="TodayTaskCell" customModule="CustomTabbar" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="344" height="81"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sbL-xC-sxG" id="JdM-5e-9as">
@@ -1130,6 +1136,9 @@
                                                                 <userDefinedRuntimeAttribute type="image" keyPath="checkImage" value="checkedbox"/>
                                                                 <userDefinedRuntimeAttribute type="image" keyPath="noneCheckImage" value="checkbox"/>
                                                             </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="completedTask:" destination="sbL-xC-sxG" eventType="touchUpInside" id="Nkh-qf-9Zi"/>
+                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Read Type Guidelines" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nam-oy-q6w">
                                                             <rect key="frame" x="69" y="30.5" width="265" height="20"/>
@@ -1146,6 +1155,9 @@
                                                         <constraint firstItem="nam-oy-q6w" firstAttribute="leading" secondItem="7VA-Ao-vO3" secondAttribute="trailing" constant="25" id="wOA-vq-INW"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="checkBox" destination="7VA-Ao-vO3" id="qFH-13-Q7b"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>
