@@ -12,7 +12,7 @@ import RealmSwift
 
 class NotificationViewModel {
     
-    var onDatabaseChanged: CompletionHandler?
+    var onDatabaseChanged: ((_ change: DatabaseChange,_ index: Int) -> Void)?
     private var notificationToken: NotificationToken? = nil
     private var notificationTaskResults: Results<Task>?
     private var tasks: [Task]

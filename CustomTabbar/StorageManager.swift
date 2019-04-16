@@ -24,7 +24,7 @@ class StorageManager {
             //shedule notification
             let timeInterval = task.date.timeIntervalSinceNow
             if timeInterval > 0 {
-                remiderNotification.createSchedulerNotification(title: task.title, timeInterval: timeInterval) { (success) in
+                remiderNotification.createSchedulerNotification(title: task.title, description: task.descriptionTask, timeInterval: timeInterval) { (success) in
                     if success {
                         print("Add notifiaction success")
                     } else {

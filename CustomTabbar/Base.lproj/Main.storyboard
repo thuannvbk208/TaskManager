@@ -851,8 +851,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DCA-zQ-ZM4">
                                 <rect key="frame" x="0.0" y="88" width="414" height="120"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full Name ..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="waQ-uJ-3AN">
-                                        <rect key="frame" x="35" y="43.5" width="147.5" height="33"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title ..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="waQ-uJ-3AN">
+                                        <rect key="frame" x="35" y="43.5" width="82.5" height="33"/>
                                         <color key="textColor" red="0.14117647059999999" green="0.23137254900000001" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="24"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -918,13 +918,13 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tCF-dq-gLM">
                                                 <rect key="frame" x="0.0" y="109.5" width="344" height="79.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priority" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PnU-7T-Of9">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PnU-7T-Of9">
                                                         <rect key="frame" x="0.0" y="0.0" width="344" height="19.5"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                                         <color key="textColor" red="0.14117647059999999" green="0.23137254900000001" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="john@email.com" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="de3-8e-du6" customClass="TTTextField" customModule="CustomTabbar" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="de3-8e-du6" customClass="TTTextField" customModule="CustomTabbar" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="29.5" width="344" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="JPc-rm-xAD"/>
@@ -1014,7 +1014,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="NEW TASK" id="yCH-2s-Prw"/>
                     <connections>
+                        <outlet property="alarmSwitch" destination="7sN-gv-jLo" id="ggK-pZ-5n4"/>
                         <outlet property="dateTextField" destination="mB4-Zf-AFW" id="mFE-Us-4U5"/>
+                        <outlet property="descriptionTextField" destination="de3-8e-du6" id="U1R-fR-w0V"/>
+                        <outlet property="notifySwitch" destination="Yvi-ha-Yiz" id="Gnd-4w-4sD"/>
                         <outlet property="titleTextField" destination="waQ-uJ-3AN" id="BPc-OM-hzh"/>
                     </connections>
                 </viewController>

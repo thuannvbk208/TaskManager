@@ -17,6 +17,7 @@
 		2CE6500B225CE2BF00A2CE40 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6500A225CE2BF00A2CE40 /* StorageManager.swift */; };
 		2CE65010225CE94B00A2CE40 /* NewTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6500F225CE94B00A2CE40 /* NewTaskViewModel.swift */; };
 		2CE763C92260E05600D5DD56 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE763C82260E05600D5DD56 /* String+Extensions.swift */; };
+		2CE8166422662A5F00891CF9 /* TTConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE8166322662A5F00891CF9 /* TTConfettiView.swift */; };
 		2CE89F25225B94F900774C32 /* DateTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE89F1F225B94F900774C32 /* DateTimePicker.swift */; };
 		2CE89F26225B94F900774C32 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE89F20225B94F900774C32 /* DateCollectionViewCell.swift */; };
 		2CE89F27225B94F900774C32 /* MonthCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE89F21225B94F900774C32 /* MonthCollectionViewCell.swift */; };
@@ -59,6 +60,7 @@
 		2CE6500A225CE2BF00A2CE40 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		2CE6500F225CE94B00A2CE40 /* NewTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewModel.swift; sourceTree = "<group>"; };
 		2CE763C82260E05600D5DD56 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		2CE8166322662A5F00891CF9 /* TTConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTConfettiView.swift; sourceTree = "<group>"; };
 		2CE89F1F225B94F900774C32 /* DateTimePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimePicker.swift; sourceTree = "<group>"; };
 		2CE89F20225B94F900774C32 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		2CE89F21225B94F900774C32 /* MonthCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				2CFFDBDE2256F92800191A67 /* TTTabBarController.swift */,
 				2CFFDBF122574D7D00191A67 /* UICheckbox.swift */,
 				2CF9A9C12257A1E800F34EBC /* TTTextField.swift */,
+				2CE8166322662A5F00891CF9 /* TTConfettiView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 				2CFFDBDF2256F92800191A67 /* TTTabBarController.swift in Sources */,
 				2CEA0EF92258928F005271D6 /* BaseViewController.swift in Sources */,
 				2CE8D7052262347200D82118 /* NotificationCell.swift in Sources */,
+				2CE8166422662A5F00891CF9 /* TTConfettiView.swift in Sources */,
 				2CFFDBF222574D7D00191A67 /* UICheckbox.swift in Sources */,
 				2CE89F28225B94F900774C32 /* StepCollectionViewFlowLayout.swift in Sources */,
 				2CF9A9C022579AD600F34EBC /* EditProfileViewController.swift in Sources */,

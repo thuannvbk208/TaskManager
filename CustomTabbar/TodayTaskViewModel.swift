@@ -10,11 +10,9 @@ import Foundation
 import Realm
 import RealmSwift
 
-typealias CompletionHandler = ((_ change: DatabaseChange,_ index: Int) -> Void)
-
 class TodayTaskViewModel {
     
-    var onDatabaseChanged: CompletionHandler?
+    var onDatabaseChanged: ((_ change: DatabaseChange,_ index: Int) -> Void)?
     private var notificationToken: NotificationToken? = nil
     private var todayTaskResults: Results<Task>?
     private var tasks: [Task]

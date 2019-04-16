@@ -8,5 +8,4 @@ target 'CustomTabbar' do
   # Pods for CustomTabbar
   pod 'FAPanels'
   pod 'RealmSwift'
-
 end

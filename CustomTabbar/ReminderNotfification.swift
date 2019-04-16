@@ -8,6 +8,7 @@
 
 import Foundation
 import UserNotifications
+import UIKit
 
 class ReminderNotification {
     static let shared = ReminderNotification()
@@ -24,11 +25,11 @@ class ReminderNotification {
             // Fallback on earlier versions
         }
     }
-    public func createSchedulerNotification(title: String, timeInterval: TimeInterval, completionHandler: @escaping((_ success: Bool) -> Void)){
+    public func createSchedulerNotification(title: String, description: String, timeInterval: TimeInterval, completionHandler: @escaping((_ success: Bool) -> Void)){
         if #available(iOS 10.0, *) {
             let notification = UNMutableNotificationContent()
-            notification.title = "TaskManager"
-            notification.body = title
+            notification.title = title
+            notification.body = description
             notification.launchImageName = "AppIcon"
             notification.sound = UNNotificationSound.default
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
@@ -45,11 +46,13 @@ class ReminderNotification {
     }
     public func createSchedulerNotification(title: String, date: Date, completionHandler: @escaping((_ success: Bool) -> Void)){
         if #available(iOS 10.0, *) {
+            let application = UIApplication.shared
             let notification = UNMutableNotificationContent()
             notification.title = "TaskManager"
             notification.body = title
             notification.launchImageName = "AppIcon"
             notification.sound = UNNotificationSound.default
+            notification.badge = NSNumber(value: application.applicationIconBadgeNumber + 1)
             let trigerDate = Calendar.current.dateComponents([.hour,.minute,.day,.month,.year], from: date)
             let trigger = UNCalendarNotificationTrigger(dateMatching: trigerDate, repeats: false)
             

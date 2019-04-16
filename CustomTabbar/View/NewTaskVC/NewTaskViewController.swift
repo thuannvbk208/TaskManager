@@ -25,6 +25,9 @@ class NewTaskViewController: BaseViewController {
     }
     
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var descriptionTextField: TTTextField!
+    @IBOutlet weak var alarmSwitch: UISwitch!
+    @IBOutlet weak var notifySwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,12 +38,17 @@ class NewTaskViewController: BaseViewController {
     @objc func showDatePicker(_ sender: TTTextField) {
         let min = Date().addingTimeInterval(-60 * 60 * 24 * 4)
         let max = Date().addingTimeInterval(60 * 60 * 24 * 4)
+        let picker = self.initDatePicker(min: min, max: max)
+        self.picker = picker
+    }
+    
+    private func initDatePicker(min: Date, max: Date) -> DateTimePicker {
         let picker = DateTimePicker.show(selected: Date(), minimumDate: min, maximumDate: max)
         picker.highlightColor = UIColor(red: 255.0/255.0, green: 138.0/255.0, blue: 138.0/255.0, alpha: 1)
         picker.darkColor = UIColor.darkGray
         picker.doneButtonTitle = "Done"
         picker.doneBackgroundColor = UIColor(rgb: AppContants.backgroundColor)
-    
+        
         picker.todayButtonTitle = "Today"
         picker.is12HourFormat = true
         picker.dateFormat = "hh:mm a dd/MM/yyyy"
@@ -49,7 +57,7 @@ class NewTaskViewController: BaseViewController {
         picker.completionHandler = { date in
             self.dateTextField.text = self.formatter.string(from: date)
         }
-        self.picker = picker
+        return picker
     }
     
     @IBAction func done(_ sender: UIButton) {
@@ -57,10 +65,12 @@ class NewTaskViewController: BaseViewController {
     }
     
     @IBAction func save(_ sender: UIButton) {
-        guard let dateText = self.dateTextField.text, let titleText = self.titleTextField.text else { return }
-        if !dateText.isEmpty && !titleText.isEmpty {
+        guard let dateText = self.dateTextField.text,
+            let titleText = self.titleTextField.text,
+            let descriptionText = self.descriptionTextField.text else { return }
+        if !dateText.isEmpty && !titleText.isEmpty && !descriptionText.isEmpty {
             let date = formatter.date(from: dateText)!
-            newTaskVM.saveTask(title: titleText, date: date)
+            newTaskVM.saveTask(title: titleText, description: descriptionText, date: date, alarm: self.alarmSwitch.isOn, notify: self.notifySwitch.isOn)
         }
     }
 }
