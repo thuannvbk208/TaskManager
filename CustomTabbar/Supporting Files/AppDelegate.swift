@@ -25,7 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let leftMenuVC = mainStoryboard.instantiateViewController(withIdentifier: "LeftMenuVC")
-        let centerVC = mainStoryboard.instantiateViewController(withIdentifier: "CenterVC") as! RootViewController
+        //let centerVC = mainStoryboard.instantiateViewController(withIdentifier: "CenterVC") as! RootViewController
+        
+        let centerVC = mainStoryboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
         
         let rootController: FAPanelController = window?.rootViewController as! FAPanelController
         rootController.configs.rightPanelWidth = 80

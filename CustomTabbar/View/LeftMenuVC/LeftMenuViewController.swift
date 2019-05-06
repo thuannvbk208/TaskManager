@@ -43,7 +43,11 @@ extension LeftMenuViewController: UITableViewDelegate {
             centerVC.selectedIndex = 3
         case "Profile":
             centerVC.selectedIndex = 4
-        case "Logout": print("Logout Account")
+        case "Logout":
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let centerVC = mainStoryboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+            let _ = panel!.center(centerVC)
+            print("Logout Account")
         default:
             print("not instantiateViewController")
         }

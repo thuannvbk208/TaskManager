@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewTaskViewController: BaseViewController {
+class NewTaskViewController: BaseViewController, UITextFieldDelegate {
 
     private var picker: DateTimePicker?
     private var newTaskVM = NewTaskViewModel()
@@ -20,12 +20,21 @@ class NewTaskViewController: BaseViewController {
     
     @IBOutlet weak var dateTextField: TTTextField! {
         didSet {
+            dateTextField.resignFirstResponder()
             dateTextField.addTarget(self, action: #selector(NewTaskViewController.showDatePicker(_:)), for: UIControl.Event.editingDidBegin)
         }
     }
     
-    @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var descriptionTextField: TTTextField!
+    @IBOutlet weak var titleTextField: UITextField! {
+        didSet {
+            self.titleTextField.delegate = self
+        }
+    }
+    @IBOutlet weak var descriptionTextField: TTTextField! {
+        didSet {
+            self.descriptionTextField.delegate = self
+        }
+    }
     @IBOutlet weak var alarmSwitch: UISwitch!
     @IBOutlet weak var notifySwitch: UISwitch!
     
@@ -36,6 +45,7 @@ class NewTaskViewController: BaseViewController {
     }
     
     @objc func showDatePicker(_ sender: TTTextField) {
+        self.resignAllFirstResponder()
         let min = Date().addingTimeInterval(-60 * 60 * 24 * 4)
         let max = Date().addingTimeInterval(60 * 60 * 24 * 4)
         let picker = self.initDatePicker(min: min, max: max)
@@ -68,10 +78,22 @@ class NewTaskViewController: BaseViewController {
         guard let dateText = self.dateTextField.text,
             let titleText = self.titleTextField.text,
             let descriptionText = self.descriptionTextField.text else { return }
-        if !dateText.isEmpty && !titleText.isEmpty && !descriptionText.isEmpty {
+        if !dateText.isEmpty && !titleText.isEmpty {
             let date = formatter.date(from: dateText)!
             newTaskVM.saveTask(title: titleText, description: descriptionText, date: date, alarm: self.alarmSwitch.isOn, notify: self.notifySwitch.isOn)
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    private func resignAllFirstResponder() {
+        //self.titleTextField.resignFirstResponder()
+        //self.descriptionTextField.resignFirstResponder()
+        self.dateTextField.resignFirstResponder()
+        self.view.endEditing(true)
     }
 }
 

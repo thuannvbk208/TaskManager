@@ -8,7 +8,11 @@
 
 import UIKit
 class TodayTaskViewController: BaseViewController, TodayTaskCellDelegate {
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            self.tableView.allowsSelection = false
+        }
+    }
     private var viewModel = TodayTaskViewModel()
     var confettiView: TTConfettiView!
     var timer: Timer?

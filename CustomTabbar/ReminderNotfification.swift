@@ -79,7 +79,8 @@ class ReminderNotification {
     
     public func removePendingNotifications(identifier: String) {
         if #available(iOS 10.0, *) {
-            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
+            UNUserNotificationCenter.current().removePendingNotificationRequests(
+                withIdentifiers: [identifier])
         } else {
             // Fallback on earlier versions
             
